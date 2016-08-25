@@ -15,5 +15,9 @@ class SessionsController < ApplicationController
   end
 
   def destroy
+  #  if current_user
+    logout
+    flash[:notice] = "退出成功"
+    redirect_to login_path
   end
 end
