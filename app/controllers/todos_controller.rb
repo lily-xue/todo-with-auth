@@ -1,7 +1,7 @@
 class TodosController < ApplicationController
   before_action :authenticate!
   def index
-@todos = Todo.all
+@todos = @current_user.todos
 @todo = Todo.new
   end
 
@@ -33,7 +33,7 @@ end
   end
 
   def edit
-  @todo = Todo.find(params[:id])
+  @todo = @current_user.find(params[:id])
   end
 private
   def todo_params
